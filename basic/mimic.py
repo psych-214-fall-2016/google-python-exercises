@@ -40,6 +40,7 @@ Could work on getting it to put in linebreaks around 70
 columns, so the output looks better.
 
 """
+from __future__ import print_function
 
 import random
 import sys
@@ -60,7 +61,7 @@ def print_mimic(mimic_dict, word):
 # Provided main(), calls mimic_dict() and mimic()
 def main():
   if len(sys.argv) != 2:
-    print 'usage: ./mimic.py file-to-read'
+    print('usage: ./mimic.py file-to-read')
     sys.exit(1)
 
   dict = mimic_dict(sys.argv[1])

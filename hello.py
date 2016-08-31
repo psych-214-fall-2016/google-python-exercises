@@ -16,6 +16,7 @@ Try changing the 'Hello' to 'Howdy' and run again.
 Once you have that working, you're ready for class -- you can edit
 and run Python code; now you just need to learn Python!
 """
+from __future__ import print_function
 
 import sys
 
@@ -26,7 +27,7 @@ def main():
     name = sys.argv[1]
   else:
     name = 'World'
-  print 'Hello', name
+  print('Hello', name)
 
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':

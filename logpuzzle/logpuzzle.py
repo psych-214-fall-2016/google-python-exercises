@@ -6,10 +6,13 @@
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
 
+from __future__ import print_function
+from future import standard_library
+standard_library.install_aliases()
 import os
 import re
 import sys
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 """Logpuzzle exercise
 Given an apache logfile, find the puzzle urls and download the images.
@@ -42,7 +45,7 @@ def main():
   args = sys.argv[1:]
 
   if not args:
-    print 'usage: [--todir dir] logfile '
+    print('usage: [--todir dir] logfile ')
     sys.exit(1)
 
   todir = ''
@@ -55,7 +58,7 @@ def main():
   if todir:
     download_images(img_urls, todir)
   else:
-    print '\n'.join(img_urls)
+    print('\n'.join(img_urls))
 
 if __name__ == '__main__':
   main()
