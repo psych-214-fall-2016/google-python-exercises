@@ -2,6 +2,9 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+#
+# Python 3 port by Matthew Brett 2016, also Apache 2.0
+from __future__ import print_function
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -10,7 +13,7 @@ import sys
 import re
 import os
 import shutil
-import commands
+import subprocess
 
 """Copy Special exercise
 """
@@ -43,8 +46,8 @@ def copy_to(paths, to_dir):
 def zip_to(paths, zipfile):
   """Zip up all of the given files into a new zip file with the given name."""
   cmd = 'zip -j ' + zipfile + ' ' + ' '.join(paths)
-  print "Command I'm going to do:" + cmd
-  (status, output) = commands.getstatusoutput(cmd)
+  print("Command I'm going to do:" + cmd)
+  (status, output) = subprocess.getstatusoutput(cmd)
   # If command had a problem (status is non-zero),
   # print its output to stderr and exit.
   if status:
@@ -62,7 +65,7 @@ def main():
   # which is the script itself.
   args = sys.argv[1:]
   if not args:
-    print "usage: [--todir dir][--tozip zipfile] dir [dir ...]";
+    print("usage: [--todir dir][--tozip zipfile] dir [dir ...]");
     sys.exit(1)
 
   # todir and tozip are either set from command line
@@ -79,7 +82,7 @@ def main():
     del args[0:2]
 
   if len(args) == 0:
-    print "error: must specify one or more dirs"
+    print("error: must specify one or more dirs")
     sys.exit(1)
 
   # +++your code here+++
@@ -96,8 +99,9 @@ def main():
   elif tozip:
     zip_to(paths, tozip)
   else:
-    print '\n'.join(paths)
+    print('\n'.join(paths))
   # LAB(end solution)
+
 
 if __name__ == "__main__":
   main()

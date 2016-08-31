@@ -2,6 +2,9 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+#
+# Python 3 port by Matthew Brett 2016, also Apache 2.0
+from __future__ import print_function
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -44,7 +47,6 @@ columns, so the output looks better.
 import random
 import sys
 
-
 def mimic_dict(filename):
   """Returns mimic dict mapping each word to list of words which follow it."""
   # +++your code here+++
@@ -60,7 +62,7 @@ def print_mimic(mimic_dict, word):
 # Provided main(), calls mimic_dict() and mimic()
 def main():
   if len(sys.argv) != 2:
-    print 'usage: ./mimic.py file-to-read'
+    print('usage: ./mimic.py file-to-read')
     sys.exit(1)
 
   dict = mimic_dict(sys.argv[1])

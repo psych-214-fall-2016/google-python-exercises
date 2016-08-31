@@ -2,6 +2,9 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+#
+# Python 3 port by Matthew Brett 2016, also Apache 2.0
+from __future__ import print_function
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -26,7 +29,8 @@ def main():
     name = sys.argv[1]
   else:
     name = 'World'
-  print 'Hello', name
+  print('Hello', name)
+
 
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
