@@ -3,3 +3,7 @@ Copyright 2010 Google Inc.
 
 This code developed by Nick Parlante
 at Google Inc.
+
+Modified for Python 3 by Matthew Brett (UC Berkeley), 2016.
+
+See README.txt
