@@ -2,6 +2,10 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+#
+# Python 3 port (print functions) by Matthew Brett 2016, same license
+
+from __future__ import print_function
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -20,10 +24,13 @@
 # strings where the string length is 2 or more and the first
 # and last chars of the string are the same.
 # Note: python does not have a ++ operator, but += works.
-from __future__ import print_function
+
 def match_ends(words):
-  # +++your code here+++
-  return
+    found = 0
+    for word in words:
+        if len(word) >= 2 and word[0] == word[-1]:
+            found += 1
+    return found
 
 
 # B. front_x
@@ -34,9 +41,14 @@ def match_ends(words):
 # Hint: this can be done by making 2 lists and sorting each of them
 # before combining them.
 def front_x(words):
-  # +++your code here+++
-  return
-
+    with_x = []
+    no_x = []
+    for word in words:
+        if word.startswith('x'):
+            with_x.append(word)
+        else:
+            no_x.append(word)
+    return sorted(with_x) + sorted(no_x)
 
 
 # C. sort_last
@@ -45,9 +57,13 @@ def front_x(words):
 # e.g. [(1, 7), (1, 3), (3, 4, 5), (2, 2)] yields
 # [(2, 2), (1, 3), (3, 4, 5), (1, 7)]
 # Hint: use a custom key= function to extract the last element form each tuple.
+
+def last(a):
+    return a[-1]
+
+
 def sort_last(tuples):
-  # +++your code here+++
-  return
+    return sorted(tuples, key=last)
 
 
 # Simple provided test() function used in main() to print

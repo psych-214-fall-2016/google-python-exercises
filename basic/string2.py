@@ -2,6 +2,10 @@
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
 # http://www.apache.org/licenses/LICENSE-2.0
+#
+# Python 3 port (print functions) by Matthew Brett 2016, same license
+
+from __future__ import print_function
 
 # Google's Python Class
 # http://code.google.com/edu/languages/google-python-class/
@@ -15,11 +19,12 @@
 # add 'ly' instead.
 # If the string length is less than 3, leave it unchanged.
 # Return the resulting string.
-from __future__ import print_function
 def verbing(s):
-  # +++your code here+++
-  return
-
+    if len(s) < 3:
+        return s
+    if s.endswith('ing'):
+        return s + 'ly'
+    return s + 'ing'
 
 # E. not_bad
 # Given a string, find the first appearance of the
@@ -30,8 +35,11 @@ def verbing(s):
 # So 'This dinner is not that bad!' yields:
 # This dinner is good!
 def not_bad(s):
-  # +++your code here+++
-  return
+    not_pos = s.find('not')
+    bad_pos = s.find('bad')
+    if -1 in (not_pos, bad_pos) or not_pos > bad_pos:
+        return s
+    return s[:not_pos] + 'good' + s[bad_pos+3:]
 
 
 # F. front_back
@@ -42,8 +50,9 @@ def not_bad(s):
 # Given 2 strings, a and b, return a string of the form
 #  a-front + b-front + a-back + b-back
 def front_back(a, b):
-  # +++your code here+++
-  return
+    a_div = len(a) // 2 + len(a) % 2
+    b_div = len(b) // 2 + len(b) % 2
+    return a[:a_div] + b[:b_div] + a[a_div:] + b[b_div:]
 
 
 # Simple provided test() function used in main() to print
